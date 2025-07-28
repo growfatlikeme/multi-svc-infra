@@ -9,7 +9,7 @@ resource "aws_sqs_queue" "sqs_service_queue" {
 
 module "ecs" {
   source  = "terraform-aws-modules/ecs/aws"
-  version = "~> 5.0"
+  version = "6.1.0"
 
   cluster_name = "${local.name_prefix}-multi-ecs-new"
 
@@ -55,8 +55,7 @@ module "ecs" {
       subnet_ids                         = module.vpc.public_subnets
       security_group_ids                 = [module.s3_service_sg.security_group_id]
       create_security_group              = false
-      create_tasks_iam_role              = false
-      tasks_iam_role_arn                 = module.s3_service_task_role.iam_role_arn
+      task_exec_iam_role_arn             = module.s3_service_task_role.iam_role_arn
 
     }
 
@@ -90,8 +89,7 @@ module "ecs" {
       subnet_ids                         = module.vpc.public_subnets
       security_group_ids                 = [module.sqs_service_sg.security_group_id]
       create_security_group              = false
-      create_tasks_iam_role              = false
-      tasks_iam_role_arn                 = module.sqs_service_task_role.iam_role_arn
+      task_exec_iam_role_arn             = module.sqs_service_task_role.iam_role_arn
     }
   }
 }
