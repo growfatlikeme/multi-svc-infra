@@ -1,5 +1,6 @@
 module "s3_service_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 5.0"
 
   name        = "growfat-s3-service-ecs-sg"
   description = "Security group for s3 service"
@@ -18,7 +19,8 @@ module "s3_service_sg" {
 }
 
 module "sqs_service_sg" {
-  source = "terraform-aws-modules/security-group/aws"
+  source  = "terraform-aws-modules/security-group/aws"
+  version = "~> 5.0"
 
   name        = "growfat-sqs-service-ecs-sg"
   description = "Security group for sqs service"

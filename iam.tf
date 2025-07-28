@@ -1,5 +1,6 @@
 module "s3_service_task_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  version = "~> 5.0"
 
   trusted_role_services = [
     "ecs-tasks.amazonaws.com"
@@ -15,7 +16,8 @@ module "s3_service_task_role" {
 }
 
 module "sqs_service_task_role" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-assumable-role"
+  version = "~> 5.0"
 
   trusted_role_services = [
     "ecs-tasks.amazonaws.com"
@@ -30,7 +32,8 @@ module "sqs_service_task_role" {
   ]
 }
 module "iam_policy" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  version = "~> 5.0"
 
   name = "growfat-s3-bucket-access"
 
@@ -58,7 +61,8 @@ module "iam_policy" {
 EOF
 }
 module "sqs_iam_policy" {
-  source = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  source  = "terraform-aws-modules/iam/aws//modules/iam-policy"
+  version = "~> 5.0"
 
   name = "growfat-sqs-queue-access"
 
