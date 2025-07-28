@@ -1,7 +1,8 @@
 #create VPC
 
 module "vpc" {
-  source = "terraform-aws-modules/vpc/aws"
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "~> 5.0"
 
 
   cidr = "172.16.16.0/20"

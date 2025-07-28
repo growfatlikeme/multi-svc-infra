@@ -8,7 +8,8 @@ resource "aws_sqs_queue" "sqs_service_queue" {
 
 
 module "ecs" {
-  source = "terraform-aws-modules/ecs/aws"
+  source  = "terraform-aws-modules/ecs/aws"
+  version = "~> 5.0"
 
   cluster_name = "${local.name_prefix}-multi-ecs-new"
 
