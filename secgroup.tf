@@ -1,0 +1,37 @@
+module "s3_service_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+
+  name        = "growfat-s3-service-ecs-sg"
+  description = "Security group for s3 service"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = 5001
+      to_port     = 5001
+      protocol    = "tcp"
+      description = "S3 Service Inbound"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+  egress_rules = ["all-all"]
+}
+
+module "sqs_service_sg" {
+  source = "terraform-aws-modules/security-group/aws"
+
+  name        = "growfat-sqs-service-ecs-sg"
+  description = "Security group for sqs service"
+  vpc_id      = module.vpc.vpc_id
+
+  ingress_with_cidr_blocks = [
+    {
+      from_port   = 5002
+      to_port     = 5002
+      protocol    = "tcp"
+      description = "SQS Service Inbound"
+      cidr_blocks = "0.0.0.0/0"
+    },
+  ]
+  egress_rules = ["all-all"]
+}
