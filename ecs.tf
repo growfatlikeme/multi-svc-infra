@@ -56,6 +56,7 @@ module "ecs" {
       security_group_ids                 = [module.s3_service_sg.security_group_id]
       create_security_group              = false
       create_tasks_iam_role              = false
+      create_task_exec_iam_role          = false
       task_exec_iam_role_arn             = module.s3_service_task_role.iam_role_arn
       task_iam_role_arn                  = module.s3_service_task_role.iam_role_arn
 
@@ -92,6 +93,7 @@ module "ecs" {
       security_group_ids                 = [module.sqs_service_sg.security_group_id]
       create_security_group              = false
       create_tasks_iam_role              = false
+      create_task_exec_iam_role          = false
       task_exec_iam_role_arn             = module.sqs_service_task_role.iam_role_arn
       task_iam_role_arn                  = module.sqs_service_task_role.iam_role_arn
     }
