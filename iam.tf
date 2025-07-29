@@ -73,9 +73,9 @@ module "sqs_iam_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "sqs:sendmessage",
-        "sqs:receivemessage",
-        "sqs:getqueueattributes"
+        "sqs:SendMessage",
+        "sqs:ReceiveMessage",
+        "sqs:GetQueueAttributes"
       ],
       "Resource": "${aws_sqs_queue.sqs_service_queue.arn}"
     }
