@@ -67,7 +67,7 @@ module "ecs" {
       container_definitions = {
         growfat-sqs-service-container = {
           essential = true
-          image     = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.id}.amazonaws.com/growfatlikeme-sqs-service-ecr:latest"
+          image     = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${data.aws_region.current.id}.amazonaws.com/growfatlikeme-sqs-repo:latest"
           portMappings = [
             {
               containerPort = 5002
