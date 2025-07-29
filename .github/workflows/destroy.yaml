@@ -28,5 +28,9 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
+      - name: Empty S3 Buckets
+        run: |
+          aws s3 rm s3://growfatlikeme-s3-bucket --recursive || true
+
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
